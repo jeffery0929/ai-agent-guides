@@ -2,11 +2,11 @@
 
 [Guide index](README.md) · [繁體中文](../zh-Hant/02-bounded-lookup.md)
 
-## Goal and scope
+## What we are building
 
-An internal user asks about an access procedure. The example selects permitted synthetic records, returns their exact excerpts and records tool events. A run without evidence cannot claim successful completion.
+Suppose a colleague asks how to request system access. This example looks up the procedure in two invented documents and returns the matching text. We will also check what happens when the lookup fails or the caller has the wrong simulated role.
 
-This is **not a complete AI agent**. Scripted proposals stand in for model output. The lesson teaches an execution boundary that would still be needed when a real model is introduced.
+We use scripted proposals here so you can follow every step. There is no model choosing tools yet. The validation and stopping rules are the parts you would keep when adding one.
 
 ## 1. Run from the repository root
 
@@ -19,7 +19,7 @@ python3 -m unittest discover -s tests -v
 
 There are no third-party dependencies, credentials or network calls. Check the [validation record](../../evidence/VALIDATION.md) and [actual output](../../evidence/demo-output.json).
 
-## 2. Read the contract before the loop
+## 2. Look at what the function accepts
 
 Open [run.py](../../examples/bounded_lookup/run.py). It contains two invented procedures. `it` and `finance` are simulated roles supplied by the caller, not authenticated identities. All fixture data is visible in the public source.
 
@@ -64,7 +64,7 @@ The fault is a simulated unavailable-tool event, not an actual HTTP timeout. A s
 
 Every proposal, including `finish`, consumes a step. If a finite list ends without `finish`, the result is `INCOMPLETE`, even when its length equals the budget. If another proposal remains after the budget is spent, the result is `BUDGET_EXHAUSTED`. Successful `finish` ends the run immediately; later proposals are not executed.
 
-## 5. Read the counterexample tests
+## 5. Try the cases that should fail
 
 Open [test_lookup.py](../../tests/test_lookup.py):
 
@@ -76,7 +76,7 @@ Open [test_lookup.py](../../tests/test_lookup.py):
 
 Exercise: add a third department's synthetic document. Design allowed and denied query tests before extending the role contract. Preserve existing no-evidence and failure behavior.
 
-## 6. When should you retain this approach?
+## 6. When is this enough?
 
 For a few tools and a short workflow without restart recovery, explicit functions may be easier to inspect. When actual requirements include long waits, durable state, branches or review, move to the [framework workshop](03-framework-workshop.md).
 

@@ -2,7 +2,7 @@
 
 [Guide index](README.md) · [繁體中文](../zh-Hant/01-selection.md)
 
-## Separate three layers
+## First, make sure you are comparing the same kind of thing
 
 - **Developer tools and harnesses** help an engineer inspect, modify and test a repository. Pi is discussed here in its coding-agent role.
 - **Application frameworks and orchestration** help you build a service. LangGraph and Pydantic AI are candidates at this layer, with different abstractions.
@@ -10,7 +10,7 @@
 
 These categories describe the use cases in this guide, not exclusive product boundaries. Pi also exposes programmatic integration modes; a framework can support more than one architecture. A system may combine layers, but each addition needs a reason.
 
-## Map the task to a candidate
+## Start with the job you need to do
 
 These are engineering recommendations to test, not measured rankings.
 
@@ -25,7 +25,7 @@ These are engineering recommendations to test, not measured rankings.
 | Investigate project, system and document relationships | SQL or explicit relationship queries, then graph retrieval | The question depends on links across records | Extracted edges, updates and derived-data access rules need evaluation |
 | Independently checkable subtasks with demonstrated coordination value | Consider multiple agents | Division of work may help | Naming more roles does not prove a quality improvement |
 
-## Official facts versus our interpretation
+## What the documentation tells us
 
 LangGraph documents stateful orchestration, persistence and human intervention. That supports considering it for state-management requirements, not a claim that selecting it makes a system production-ready. [Official overview](https://docs.langchain.com/oss/python/langgraph/overview)
 
@@ -33,7 +33,7 @@ Pydantic AI documents typed outputs, tools and dependencies. Those features supp
 
 Pi describes an extensible agent harness with interactive and programmatic modes. Our coding-task recommendation is a use-case choice, not a claim that embedding Pi is impossible. [Official site](https://pi.dev/)
 
-## Complete a requirement sheet before installing candidates
+## Write down the requirements first
 
 1. Who is the user, and where does trusted identity come from?
 2. What are the input, output, permitted data and forbidden actions?
@@ -43,4 +43,4 @@ Pi describes an extensible agent harness with interactive and programmatic modes
 6. Who defines task labels, failure categories, latency limits and spend limits?
 7. Can the maintainer understand, test and replace the approach?
 
-Fill gaps before broadening the stack. Keep a direct implementation as the baseline; admit at most two justified candidates per experiment. Keeping the baseline, deferring or rejecting a framework are valid outcomes.
+If several answers are missing, work through those before installing more packages. Keep a direct implementation to compare against and try at most two justified candidates at a time. You may find the original code is enough. That is still a useful result.

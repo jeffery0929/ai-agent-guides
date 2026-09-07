@@ -2,7 +2,7 @@
 
 [Guide index](README.md) · [繁體中文](../zh-Hant/03-framework-workshop.md)
 
-This is an experiment-design workshop. No LangGraph or Pydantic AI SDK run has been performed in this repository. Exact installation/API instructions will follow a pinned, executed implementation. The current runnable control-boundary fixture is [lesson 02](02-bounded-lookup.md).
+A feature list will not tell you whether a framework makes your application easier to maintain. Here we give the options the same job: prepare a draft from an internal service request. This chapter plans that comparison; the LangGraph and Pydantic AI SDK examples have not been run yet. For working code, start with [lesson 02](02-bounded-lookup.md).
 
 ## Task: classify an internal request and prepare a draft
 
@@ -10,7 +10,7 @@ The proposed system receives a synthetic request, permitted documents and identi
 
 Start with four steps: validate → retrieve permitted sources → prepare draft → validate fields and source support. Decide whether this fixed path is sufficient before assigning an agent to each step.
 
-## 1. Freeze a fair comparison contract
+## 1. Keep the task the same
 
 Use the same document snapshot, question set, tools and rubric. Model experiments must record model identity, prompts, parameters, retries and spend limits. If a framework injects different instructions or changes the tool schema, record that difference as a potential confounder.
 
@@ -24,7 +24,7 @@ Use the same document snapshot, question set, tools and rubric. Model experiment
 
 Set thresholds from the task's risk and user needs before comparing results. There is no universal accuracy percentage that establishes deployment readiness.
 
-## 2. State falsifiable candidate hypotheses
+## 2. Say what each option needs to improve
 
 ### Direct implementation
 
@@ -48,12 +48,12 @@ Exercise: define retrieval, draft, waiting and completion transitions. Select th
 
 Review must be tied to a specific draft and action version. Resuming an interrupted node can rerun earlier node code; side effects require idempotency or reconciliation. Checkpointing alone does not prove exactly-once external actions. [Interrupts](https://docs.langchain.com/oss/python/langgraph/interrupts)
 
-## 3. Bound the experiment
+## 3. Keep the first comparison small
 
 For a fixed classification draft, compare the direct implementation with one justified candidate first. Add a state-oriented candidate only when state requirements exist. Keep the baseline and admit at most two framework candidates per experiment.
 
-## 4. Record reproducible evidence
+## 4. Leave enough detail for someone else to check
 
 Record source commit, interpreter, exact packages and lockfile, tool/data snapshots, test IDs, model settings, all failures, latency and cost. Use `PASS`, `FAIL`, `NOT_RUN` or `NOT_APPLICABLE` with reasons. A documentation review cannot turn `NOT_RUN` into `PASS`.
 
-Conclude with adopt / retain baseline / defer / reject, supporting evidence, maintenance costs and an exit path. This is a task-specific decision, not a general framework ranking.
+At the end, explain which option you would keep, what it improved, and what it will cost to maintain or replace. If the results do not justify a change, say so. The decision applies to this task; it does not rank the frameworks for every application.

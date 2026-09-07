@@ -2,9 +2,9 @@
 
 [Guide index](README.md) · [繁體中文](../zh-Hant/05-retrieval-design.md)
 
-This is an architecture workshop. No model, vector database or graph index has been deployed in this repository. The output is a design that can be implemented and evaluated.
+Start by collecting a few questions people actually need answered. A procedure lookup and a question about dependencies across projects may need different retrieval paths. This chapter works through that design; there is no deployed model, vector database or graph index in this repository yet.
 
-## Separate three question types
+## Compare three kinds of question
 
 1. **“What is the approval procedure for system access?”** Start with lexical/vector retrieval, citations and no-evidence behavior.
 2. **“Do this project's documents, open tickets and system-owner records agree?”** Evaluate bounded tool routing when intermediate evidence determines which sources to query.
@@ -20,7 +20,7 @@ Use a small approved collection with source identifiers, versions, locators and 
 
 Label supporting passages before tuning. Reserve held-out questions. Without credible reference labels, do not publish a retrieval-accuracy number.
 
-## 2. Build an explainable baseline
+## 2. Build the first retrieval path
 
 Parse → preserve chunks and metadata → enforce access rules → retrieve/rerank → answer or refuse → verify citations.
 
@@ -28,7 +28,7 @@ The logical requirement is that unauthorized evidence must not reach a reranker 
 
 Uniform outward responses for missing and inaccessible material may reduce existence leaks. They do not eliminate timing, logging or other side channels by themselves.
 
-## 3. Extend only where the baseline has demonstrated gaps
+## 3. Use the failures to decide what to add
 
 ### Agentic RAG
 
@@ -40,7 +40,7 @@ First check whether the needed relationships already exist in a queryable databa
 
 Test direct relationship lookup separately from collection-wide synthesis. Compare indexing cost, update work, retrieval quality and answer support. Do not presume that graph retrieval is better.
 
-## 4. Produce a reviewable design package
+## 4. Write down what someone would need to build it
 
 - Data-flow and trust-boundary diagrams.
 - Question categories and reasons for each selected path.
@@ -49,4 +49,4 @@ Test direct relationship lookup separately from collection-wide synthesis. Compa
 - Fixed evaluation data, human review procedure, spend and latency budgets.
 - Counterexamples and conditions for returning to the baseline.
 
-These artifacts justify an implementation experiment. Claims that a system works require code, executed results and acceptance on the approved data.
+This gives the implementation a clear starting point. The next step is to build it and check the results on the approved collection; the design alone cannot tell you how well it will work.

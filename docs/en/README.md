@@ -1,15 +1,15 @@
-# AI Agent Guides: from task selection to verifiable execution
+# AI Agent Guides
 
 [Repository home](../../README.md) · [繁體中文](../zh-Hant/README.md)
 
-English is the primary and maintained source language. Chinese pages are companion translations. Choose a lesson by the problem you need to solve:
+Start with the question you are trying to answer. You do not need to read everything in order.
 
-| Your question | Guide | Current scope |
-|---|---|---|
-| Which approach fits this task, and why? | [01 Scenario-based selection](01-selection.md) | Source-backed recommendations |
-| How do I validate tools and stop unsupported completion? | [02 Bounded lookup](02-bounded-lookup.md) | Executed offline fixture |
-| How should I compare frameworks fairly? | [03 Framework workshop](03-framework-workshop.md) | Experiment design; SDK runs pending |
-| How should I give Pi a coding task and verify its patch? | [04 Pi workshop](04-pi-workshop.md) | Manual protocol; Pi run pending |
-| When are agentic or graph retrieval worth evaluating? | [05 Retrieval design](05-retrieval-design.md) | Architecture exercise; integration pending |
+1. [Choosing an approach](01-selection.md) helps you separate coding tools, application frameworks and retrieval designs before comparing them.
+2. [The tool-loop example](02-bounded-lookup.md) gives you something small enough to read end to end. Run it, inspect the results, then try the failure cases.
+3. [The framework workshop](03-framework-workshop.md) sets up a comparison around one internal request rather than a list of features.
+4. [The Pi exercise](04-pi-workshop.md) turns a coding request into a patch you can review and test.
+5. [The retrieval guide](05-retrieval-design.md) starts with different kinds of questions and works toward the architecture they might need.
 
-Each lesson explains fit, rationale, counterexamples, steps, failure cases and acceptance criteria. Installation is not task success; a convincing answer is not source verification. Read the [audit](../../evidence/CONTENT_AUDIT.md) and [validation record](../../evidence/VALIDATION.md) for the exact evidence boundary.
+Lesson 02 has a runnable offline example. The SDK, Pi and retrieval integrations in the other lessons are still planned. You can check the [test record](../../evidence/VALIDATION.md) and [audit notes](../../evidence/CONTENT_AUDIT.md) for details.
+
+English is the primary version. Chinese translations are linked from each lesson.

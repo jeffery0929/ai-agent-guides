@@ -1,45 +1,45 @@
 # AI Agent Guides
 
-**Choose an approach for the task. Understand why it fits. Test how it fails.**
+A small collection of guides about choosing and building agents for internal tools and knowledge retrieval.
 
-Practical notes and small examples for enterprise AI automation, tool-using agents and knowledge retrieval. Start with the workflow, data and acceptance criteria before choosing a framework.
+There are plenty of ways to get a tool call working. These notes spend more time on the next questions: what should the tool be allowed to do, how do you check its result, and when is a framework worth adding?
 
-[English guides](docs/en/README.md) · [繁體中文](docs/zh-Hant/README.md) · [Consulting services](https://jeffery0929.github.io/services/) · [Engineering projects](https://github.com/jeffery0929)
+[Read in English](docs/en/README.md) · [繁體中文](docs/zh-Hant/README.md)
 
-## What you can read and run today
+## Where to start
 
-| Resource | What you will learn | Evidence |
-|---|---|---|
-| [Scenario-based selection](docs/en/01-selection.md) | Separate coding tools, orchestration frameworks and retrieval architectures; compare when each helps | Source-backed design guidance; no performance ranking |
-| [Bounded tool-loop tutorial](docs/en/02-bounded-lookup.md) | Validate proposals, filter synthetic records, trace failures and stop a loop | Runnable Python standard-library fixture and tests |
-| [Framework comparison workshop](docs/en/03-framework-workshop.md) | Design the same internal-service task for LangGraph, Pydantic AI and a direct implementation | Step-by-step experiment design; SDK implementations pending |
-| [Pi coding-agent exercise](docs/en/04-pi-workshop.md) | Plan a reviewable coding task and evaluate its patch and tool use | Manual exercise protocol; Pi execution not yet verified here |
-| [RAG architecture workshop](docs/en/05-retrieval-design.md) | Decide among retrieval pipelines, Agentic RAG and graph-based retrieval | Design exercise; no connected model or graph index |
+If you want to run something, start with [the tool-loop example](docs/en/02-bounded-lookup.md). It uses two invented documents and scripted proposals, so you can follow the whole execution without a model or API key.
 
-## Run the first example
+For the design questions, read:
 
-From the repository root, using the verified runtime CPython 3.14.5 (other versions have not been executed here):
+- [Choosing an approach](docs/en/01-selection.md) — which options fit the task, and which add work you may not need.
+- [Comparing frameworks](docs/en/03-framework-workshop.md) — how to give a direct implementation, Pydantic AI and LangGraph a fair comparison.
+- [A Pi coding exercise](docs/en/04-pi-workshop.md) — how to ask for a small change and check the resulting patch.
+- [Choosing a retrieval design](docs/en/05-retrieval-design.md) — when to consider agent routing or graph-based retrieval.
+
+Those four chapters explain the reasoning and give exercises. The framework, Pi and retrieval integrations have not been run here yet; their implementation work is tracked in the [roadmap](ROADMAP.md).
+
+## Run the example
+
+From the repository root:
 
 ```sh
 python3 examples/bounded_lookup/run.py
 python3 -m unittest discover -s tests -v
 ```
 
-No installation, model credentials or network calls. The script uses **synthetic data and scripted proposals**, not an LLM. It teaches the execution boundary that an actual agent would need. See [validation](evidence/VALIDATION.md) for the runtime actually tested.
+The example uses Python's standard library. It has been tested on CPython 3.14.5; other versions have not been checked. There is nothing to install beyond Python, and the example makes no network calls.
 
-The cases demonstrate normal completion, one injected tool failure followed by retry, role filtering and a step-budget stop. A passing fixture proves those local contracts only.
+Look at the four results: a normal lookup, a retry after a simulated failure, a lookup filtered by the caller's simulated role, and a loop stopped by its step budget. This is a teaching fixture, not a model-powered agent or a real access-control system. The [validation record](evidence/VALIDATION.md) includes the test output and remaining limits.
 
-## Curriculum and maintenance
+## How these notes are maintained
 
-- [Roadmap](ROADMAP.md): a complete baseline first; bounded framework experiments next.
-- [Tutorial template](docs/TUTORIAL_TEMPLATE.md): prerequisites, decisions, execution, failure cases and verification.
-- [Sources](docs/SOURCES.md): official documentation checked on 2026-09-07.
-- [Contribution rules](CONTRIBUTING.md): cite exact versions and preserve unverified boundaries.
+English is the source language; Traditional Chinese is the companion translation. Technical corrections should reach both. Japanese is planned.
 
-English is the primary language for the complete guides, navigation and future revisions. Traditional Chinese is a companion translation; Japanese remains planned. Update the English source first, then synchronize technical changes across translations.
+The [sources](docs/SOURCES.md) link to the official documentation used in the guides. The [audit notes](evidence/CONTENT_AUDIT.md) record corrections and distinguish what was read from what was actually run. If you add a lesson, use the [tutorial template](docs/TUTORIAL_TEMPLATE.md) and [contribution notes](CONTRIBUTING.md).
 
-Read the [content and correctness audit](evidence/CONTENT_AUDIT.md) for verified claims, fixes and remaining limits.
+## Related work
 
-## Related engineering work
+For larger examples, look at [AgentChaos](https://github.com/jeffery0929/agentchaos) for fault injection, [TraceGraphBench](https://github.com/jeffery0929/TraceGraphBench) for trace analysis, and [Cloud Agent Platform](https://github.com/jeffery0929/cloud-agent-platform) for an agent-execution reference MVP. Each has its own setup and validation records.
 
-[AgentChaos](https://github.com/jeffery0929/agentchaos) explores fault injection and agent diagnostics. [TraceGraphBench](https://github.com/jeffery0929/TraceGraphBench) explores trace graphs and deterministic evaluation. [Cloud Agent Platform](https://github.com/jeffery0929/cloud-agent-platform) documents an agent-execution reference MVP. These are separate projects; this guide does not rerun or certify them.
+[Consulting services](https://jeffery0929.github.io/services/) · [GitHub profile](https://github.com/jeffery0929)

@@ -13,3 +13,7 @@
 | G7b / P2 | TODO | Add Japanese translations | Stable English source | Equivalent instructions and technical editorial review |
 
 The design workshops for G3–G6 are readable now. Their runtime milestones remain TODO. New articles are published as runnable tutorials only after their commands and expected outputs have been executed. Complete one vertical slice before opening another framework implementation.
+
+## Editorial revision
+
+DONE: revised the English entry pages and five lessons for clearer, less repetitive prose. Technical commands, source links and runtime status are preserved; source/test hashes and lesson code blocks were checked unchanged. Chinese remains technically aligned; this revision changes the English voice. See docs/VOICE.md.
