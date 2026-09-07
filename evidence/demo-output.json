@@ -1,0 +1,87 @@
+{
+  "normal": {
+    "status": "COMPLETE",
+    "citations": [
+      {
+        "id": "IT-001",
+        "excerpt": "Request access through the service desk; the system owner reviews it."
+      }
+    ],
+    "trace": [
+      {
+        "step": 1,
+        "event": "SEARCH",
+        "matches": 1
+      },
+      {
+        "step": 2,
+        "event": "FINISH"
+      }
+    ]
+  },
+  "retry": {
+    "status": "COMPLETE",
+    "citations": [
+      {
+        "id": "IT-001",
+        "excerpt": "Request access through the service desk; the system owner reviews it."
+      }
+    ],
+    "trace": [
+      {
+        "step": 1,
+        "event": "TOOL_UNAVAILABLE"
+      },
+      {
+        "step": 2,
+        "event": "SEARCH",
+        "matches": 1
+      },
+      {
+        "step": 3,
+        "event": "FINISH"
+      }
+    ]
+  },
+  "role_filtered": {
+    "status": "NO_EVIDENCE",
+    "citations": [],
+    "trace": [
+      {
+        "step": 1,
+        "event": "SEARCH",
+        "matches": 0
+      },
+      {
+        "step": 2,
+        "event": "FINISH"
+      }
+    ]
+  },
+  "loop_stopped": {
+    "status": "BUDGET_EXHAUSTED",
+    "citations": [],
+    "trace": [
+      {
+        "step": 1,
+        "event": "SEARCH",
+        "matches": 1
+      },
+      {
+        "step": 2,
+        "event": "SEARCH",
+        "matches": 1
+      },
+      {
+        "step": 3,
+        "event": "SEARCH",
+        "matches": 1
+      },
+      {
+        "step": 4,
+        "event": "SEARCH",
+        "matches": 1
+      }
+    ]
+  }
+}
