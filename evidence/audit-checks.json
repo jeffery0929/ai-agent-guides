@@ -1,0 +1,8 @@
+{
+  "python": "3.14.5",
+  "tests": 13,
+  "localMarkdownLinksChecked": 61,
+  "fencedJson": "parsed",
+  "demoStatuses": "matched",
+  "scope": "offline fixture and documentation; no SDK/model runs"
+}

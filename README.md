@@ -4,21 +4,21 @@
 
 Practical notes and small examples for enterprise AI automation, tool-using agents and knowledge retrieval. Start with the workflow, data and acceptance criteria before choosing a framework.
 
-[繁體中文教學入口](docs/zh-Hant/README.md) · [Consulting services](https://jeffery0929.github.io/services/) · [Engineering projects](https://github.com/jeffery0929)
+[English guides](docs/en/README.md) · [繁體中文](docs/zh-Hant/README.md) · [Consulting services](https://jeffery0929.github.io/services/) · [Engineering projects](https://github.com/jeffery0929)
 
 ## What you can read and run today
 
 | Resource | What you will learn | Evidence |
 |---|---|---|
-| [Scenario-based selection](docs/zh-Hant/01-selection.md) | Separate coding tools, orchestration frameworks and retrieval architectures; compare when each helps | Source-backed design guidance; no performance ranking |
-| [Bounded tool-loop tutorial](docs/zh-Hant/02-bounded-lookup.md) | Validate proposals, filter synthetic records, trace failures and stop a loop | Runnable Python standard-library fixture and tests |
-| [Framework comparison workshop](docs/zh-Hant/03-framework-workshop.md) | Design the same internal-service task for LangGraph, Pydantic AI and a direct implementation | Step-by-step experiment design; SDK implementations pending |
-| [Pi coding-agent exercise](docs/zh-Hant/04-pi-workshop.md) | Plan a reviewable coding task and evaluate its patch and tool use | Manual exercise protocol; Pi execution not yet verified here |
-| [RAG architecture workshop](docs/zh-Hant/05-retrieval-design.md) | Decide among retrieval pipelines, Agentic RAG and graph-based retrieval | Design exercise; no connected model or graph index |
+| [Scenario-based selection](docs/en/01-selection.md) | Separate coding tools, orchestration frameworks and retrieval architectures; compare when each helps | Source-backed design guidance; no performance ranking |
+| [Bounded tool-loop tutorial](docs/en/02-bounded-lookup.md) | Validate proposals, filter synthetic records, trace failures and stop a loop | Runnable Python standard-library fixture and tests |
+| [Framework comparison workshop](docs/en/03-framework-workshop.md) | Design the same internal-service task for LangGraph, Pydantic AI and a direct implementation | Step-by-step experiment design; SDK implementations pending |
+| [Pi coding-agent exercise](docs/en/04-pi-workshop.md) | Plan a reviewable coding task and evaluate its patch and tool use | Manual exercise protocol; Pi execution not yet verified here |
+| [RAG architecture workshop](docs/en/05-retrieval-design.md) | Decide among retrieval pipelines, Agentic RAG and graph-based retrieval | Design exercise; no connected model or graph index |
 
 ## Run the first example
 
-From the repository root, using Python 3.11+:
+From the repository root, using the verified runtime CPython 3.14.5 (other versions have not been executed here):
 
 ```sh
 python3 examples/bounded_lookup/run.py
@@ -36,7 +36,9 @@ The cases demonstrate normal completion, one injected tool failure followed by r
 - [Sources](docs/SOURCES.md): official documentation checked on 2026-09-07.
 - [Contribution rules](CONTRIBUTING.md): cite exact versions and preserve unverified boundaries.
 
-Detailed teaching currently starts in Traditional Chinese; this English landing page supports discovery. English and Japanese full tutorials are planned after the runnable examples and Chinese explanations stabilize.
+English is the primary language for the complete guides, navigation and future revisions. Traditional Chinese is a companion translation; Japanese remains planned. Update the English source first, then synchronize technical changes across translations.
+
+Read the [content and correctness audit](evidence/CONTENT_AUDIT.md) for verified claims, fixes and remaining limits.
 
 ## Related engineering work
 

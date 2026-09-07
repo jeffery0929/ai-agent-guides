@@ -1,5 +1,6 @@
 # 03｜用同一個任務比較框架
 
+[English — 主要版本](../en/03-framework-workshop.md) · 繁體中文翻譯
 這是逐步的實驗設計教學；本篇尚未執行 LangGraph 或 Pydantic AI SDK，不提供未核對版本的安裝與 API 範例。可執行基準見 [第 02 篇](02-bounded-lookup.md)。
 
 ## 任務：內部服務請求的分類與處理草稿

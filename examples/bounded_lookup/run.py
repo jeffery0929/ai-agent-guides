@@ -21,7 +21,11 @@ DOCUMENTS = (
 
 def run(proposals, *, role="it", max_steps=4, fail_once=False):
     """Execute scripted tool proposals under a bounded, read-only contract."""
-    if role not in {"it", "finance"}:
+    if type(proposals) not in (list, tuple):
+        raise ValueError("proposals must be a prebuilt list or tuple")
+    if type(fail_once) is not bool:
+        raise ValueError("fail_once must be a boolean")
+    if not isinstance(role, str) or role not in {"it", "finance"}:
         raise ValueError("Unknown simulated role")
     if type(max_steps) is not int or not 1 <= max_steps <= 10:
         raise ValueError("max_steps must be an integer from 1 to 10")

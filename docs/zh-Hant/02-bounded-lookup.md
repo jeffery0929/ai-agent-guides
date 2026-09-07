@@ -1,5 +1,6 @@
 # 02｜建立可檢查的工具執行邊界
 
+[English — 主要版本](../en/02-bounded-lookup.md) · 繁體中文翻譯
 ## 目標與場景
 
 企業內部同事詢問系統存取流程。程式只能讀取允許的合成文件，回傳原文片段，並記錄每次工具執行。沒有證據時不能憑空完成；失敗與重試也必須可見。
@@ -8,7 +9,7 @@
 
 ## 1. 準備與執行
 
-使用 Python 3.11+，在 repository 根目錄執行：
+本次驗證的執行環境是 CPython 3.14.5；其他版本尚未執行驗證。在 repository 根目錄執行：
 
 ```sh
 python3 examples/bounded_lookup/run.py
@@ -76,3 +77,9 @@ flowchart LR
 ## 本篇沒有證明的事
 
 沒有模型選工具、語意檢索、真實身分／ACL、程序中斷恢復、並行隔離、外部寫入或真實成本量測。步數上限也不是牆鐘超時控制；真實阻塞工具需要另外的執行超時與取消設計。接模型時必須重新處理輸出解碼、工具結果不可信、上下文洩漏、請求費用與真實問題的答案評估。
+
+## 補充契約與邊界
+
+proposals 只接受預先建立的 list 或 tuple；role 必須是允許的字串，fail_once 必須是 bool，max_steps 必須是 1–10 的整數。無效設定拋出 ValueError，無效提案回傳 REJECTED。惰性 generator 會被拒絕，不會在預算外取出下一項。這不是安全沙箱。
+
+finish 也算一步。列表在沒有 finish 時結束，回傳 INCOMPLETE；預算耗盡而仍有下一個提案則回傳 BUDGET_EXHAUSTED。有效 finish 立即終止，不執行後續提案。120 字元限制指正規化後 Python 字串的長度，不是 token 上限。

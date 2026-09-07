@@ -1,0 +1,18 @@
+test_bad_arguments (test_lookup.LookupContract.test_bad_arguments) ... ok
+test_budget_boundary_and_terminal_state (test_lookup.LookupContract.test_budget_boundary_and_terminal_state) ... ok
+test_budget_stops_loop (test_lookup.LookupContract.test_budget_stops_loop) ... ok
+test_configuration_types (test_lookup.LookupContract.test_configuration_types) ... ok
+test_exact_source (test_lookup.LookupContract.test_exact_source) ... ok
+test_failed_tool_cannot_supply_citations (test_lookup.LookupContract.test_failed_tool_cannot_supply_citations) ... ok
+test_failure_and_retry (test_lookup.LookupContract.test_failure_and_retry) ... ok
+test_invalid_configuration (test_lookup.LookupContract.test_invalid_configuration) ... ok
+test_lazy_proposals_rejected_without_consumption (test_lookup.LookupContract.test_lazy_proposals_rejected_without_consumption) ... ok
+test_new_query_clears_old_evidence (test_lookup.LookupContract.test_new_query_clears_old_evidence) ... ok
+test_no_unearned_success (test_lookup.LookupContract.test_no_unearned_success) ... ok
+test_role_filter (test_lookup.LookupContract.test_role_filter) ... ok
+test_unlisted_tool (test_lookup.LookupContract.test_unlisted_tool) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.000s
+
+OK

@@ -9,6 +9,7 @@
 | G4 / P1 | TODO | Execute the Pi coding exercise and document a complete walkthrough | Isolated fixture checkout, pinned Pi, provider budget | Actual diff, independent tests, trace/commands and limitations; no simulated run claims |
 | G5 / P1 | TODO | Build the retrieval baseline before agentic or graph extensions | Approved corpus and answer/source labels | Parsing, permissions, citations, refusal and held-out evaluation |
 | G6 / P2 | TODO | Evaluate Agentic RAG and graph retrieval where baseline gaps justify them | G5 failure analysis | Same questions, incremental benefits and costs, source-update/revocation behavior |
-| G7 / P2 | TODO | Add English and Japanese full tutorials | Stable runnable examples and reviewed Chinese copy | Equivalent instructions and tested commands; language editorial review |
+| G7a / P0 | DONE | Make English the primary full tutorial language | Owner request; source and code audit | Five complete English guides, primary links updated, Chinese technical corrections synchronized |
+| G7b / P2 | TODO | Add Japanese translations | Stable English source | Equivalent instructions and technical editorial review |
 
 The design workshops for G3–G6 are readable now. Their runtime milestones remain TODO. New articles are published as runnable tutorials only after their commands and expected outputs have been executed. Complete one vertical slice before opening another framework implementation.
